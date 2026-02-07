@@ -12,7 +12,7 @@ model_ollama="gemma3:4b"
 models_score={model_groq:0,model_ollama:0}
 models_latency={model_groq:[],model_ollama:[]}
      
-client=Groq(api_key=os.getenv("GROQ_API_KEY"))
+client=Groq(api_key=os.getenv("API_KEY"))
 from prompt_stability import PROMPTS
 Judges=["llama-3.3-70b-versatile", 
     "meta-llama/llama-4-scout-17b-16e-instruct", 
