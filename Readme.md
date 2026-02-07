@@ -186,6 +186,17 @@ LLM BENCHMARK/
 
 |--Readme.md
 
+# Setup
+
+This project requires access to hosted LLM APIs.
+
+Users must provide their own API keys via environment variables.
+
+Create a '.env' file in the project root and add:
+
+API_KEY=your_groq_api_key_here
+
+
 # How to run:
 
 pip install -r requirements.txt
