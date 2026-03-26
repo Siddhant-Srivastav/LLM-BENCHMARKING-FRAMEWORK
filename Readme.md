@@ -1,11 +1,20 @@
-LLM BENCHMARKING FRAMEWORK:
+# LLM Benchmarking Framework 
 
-# Introduction:
+## Overview:
+
+A lightweight and extensible benchmarking framework for evaluating Large Language Models across multiple platforms and prompt variations .
+The Framework focuses on three key aspects:
+- Cross platform stability 
+- Prompt robustness
+- Latency measurement 
+It is designed to remain simple, transparent, and extensible while enabling meaningful comparisons between LLM deployments.
+
+## Introduction:
 
 Large Language Models (LLMs) are increasingly deployed across diverse platforms and infrastructures. However, analyzing their behavior across
 different execution environments and prompt formulations remains challenging due to:
 
-: Infrastructure heterogeneity (cloud APIs vs. local inference).
+: Infrastructure differences (cloud APIs vs. local inference).
 
 : Variability in latency across execution environments.
 
@@ -13,7 +22,7 @@ different execution environments and prompt formulations remains challenging due
 
 : Overly complex or opaque evaluation pipelines
 
-This project introduces a lightweight and extensible benchmarking framework that evaluates LLMs under three complementary perspectives: 
+This project introduces a lightweight and extensible benchmarking framework designed to  evaluate LLMs from three complementary perspectives: 
 
 1. Stability across platforms, and
 
@@ -23,7 +32,16 @@ This project introduces a lightweight and extensible benchmarking framework that
 
 The framework is designed to remain provider agnostic with future support planned for Gemini Models, while clarity, interpretability, and sound experimental design are maintained.
 
-## Motive:
+## Features:
+
+- Cross_platform benchmarking of LLMs across different execution environments
+- Prompt robustness evaluation using paraphrased prompt variations
+- LLM as judge evaluation for qualitative response comparison 
+- Latency measurement and performance analysis
+- Task-wise evaluation across multiple prompt categories 
+
+
+## Motivation:
 
 Most of the LLM evaluations either
 
@@ -35,13 +53,13 @@ Most of the LLM evaluations either
 
 This project addresses these gaps by asking:
 
-1. How stable are model comparisons across heterogenous platforms?
+1. How stable are model comparisons across different platforms?
 
 2. How robust are models to natural variations in user prompts?
 
 3. How do we benchmark LLMs without sacrificing simplicity or extensibility?
 
-## Evaluation design
+## Evaluation Design 
 
 To avoid mixing objectives, the framework separates the evaluation into two independent benchmarks, each with a clearly defined goal.
 
@@ -53,7 +71,7 @@ Script='cross_benchmark.py'
 
 Prompt Set = 'prompts_stability.py'
 
-This benchmark compares models deployed on different models (e.g., Groq API, Ollama local inference).
+This benchmark compares models deployed on different platforms (e.g., Groq API, Ollama local inference).
 
 # Methodology:
 
@@ -87,7 +105,7 @@ This benchmark evaluates multiple Groq-hosted models under a shared infrastructu
 
 Measure robustness to prompt phrasing and real-world user input.
 
-# Prompt Design;
+# Prompt  Dataset Design :
 
 Prompts are organized by type:
 
@@ -124,7 +142,7 @@ Measured and averaged where appropriate to reduce noise.
 Results are reported separately for each task category.
 
 Platform-specific metrics such as token usage are intentionally excluded to preserve simplicity and clarity.
-## Output
+## Output :
 
 The framework can optionally generate CSV files summarizing evaluation results, including:
 - average latency per model and task
@@ -134,7 +152,7 @@ The framework can optionally generate CSV files summarizing evaluation results, 
 CSV generation is disabled by default and can be enabled explicitly when needed
  
 
-# Key Observations:
+## Key Observations:
 
 1. Model performance is task dependent rather than uniform.
 
@@ -142,13 +160,13 @@ CSV generation is disabled by default and can be enabled explicitly when needed
 
 3. Prompts paraphrasing rarely alters relative rankings, indicating robustness in the LLMs we used.
 
-4. In the cross-platform benchmark, LLM latencies show high deflections.
+4. In the cross-platform benchmark, LLM latencies show high variations .
 
 due to infrastructure differences.
 
 5. Ollama based models exhibited higher latency,with qualitative performance varying across tasks.
 
-# Design Philosophy:
+## Design Philosophy:
 
 1. One evaluation objective per benchmark 
 
@@ -158,7 +176,7 @@ due to infrastructure differences.
 
 4. Easily accessible to the new services or platforms (e.g., Gemini)
 
-# Future Work
+## Future Work
 
 1. Integration of Gemini Models
 
@@ -168,36 +186,44 @@ due to infrastructure differences.
 
 4. Automated experiment configuration.
 
-# Project Structure:
 
-LLM BENCHMARK/
+## Project Structure
 
-|--config.py
 
-|--cross_platform.py
+LLM_BENCHMARK/
+│
+├── BENCHMARKS/
+│   ├── cross_platform.py
+│   └── groq_benchmark.py
+│
+├── DATASETS/
+│   ├── prompts_stability.py
+│   └── prompt_robustness.py
+│
+├── RESULTS/
+│
+├── config.py
+├── utils.py
+└── README.md
 
-|--groq_benchmark.py
 
-|--prompts_stability.py
+## Setup
+Clone the repository:
 
-|--prompt_robustness.py
+git clone <your-repo-url>
 
-|--utils.py
+cd LLM-BENCHMARK 
 
-|--Readme.md
+Install dependencies:
 
-# Setup
+pip install -r requirments.txt
 
-This project requires access to hosted LLM APIs.
-
-Users must provide their own API keys via environment variables.
-
-Create a '.env' file in the project root and add:
+Create a '.env' file in the project root and add your API  key:
 
 API_KEY=your_groq_api_key_here
 
 
-# How to run:
+## How to run:
 
 pip install -r requirements.txt
 

@@ -5,15 +5,16 @@ from groq.types.chat.chat_completion import ChatCompletion
 import ollama
 from dotenv import load_dotenv
 import os
-EXPORT_CSV=False
-RUN_PER_PROMPTS=3
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+from config import RUN_PER_PROMPTS
 model_groq="llama-3.1-8b-instant"
 model_ollama="gemma3:4b"
 models_score={model_groq:0,model_ollama:0}
 models_latency={model_groq:[],model_ollama:[]}
      
 client=Groq(api_key=os.getenv("API_KEY"))
-from prompt_stability import PROMPTS
+from DATASETS.prompt_stability import PROMPTS
 Judges=["llama-3.3-70b-versatile", 
     "meta-llama/llama-4-scout-17b-16e-instruct", 
     "llama-3.1-8b-instant"]
@@ -75,6 +76,7 @@ for Category,prompt in PROMPTS.items():
            "rounds":0}
    for i in range(RUN_PER_PROMPTS):
     try:
+     # Collect responses from models
      ans_groq,latency1=groq_response(model_groq,prompt)
      task_stats[Category][model_groq]["latencies"].append(latency1)
      task_stats[Category][model_groq]["rounds"]+=1
@@ -89,6 +91,7 @@ for Category,prompt in PROMPTS.items():
     except Exception as e:
        print(f"Ollama error in {Category}:{e}")
     try:
+     # Evaluate responses using LLM-as-Judge
      better=judge(prompt,ans_groq,ans_ollama)
      if("A" in better):
       models_score[model_groq]+=1
@@ -114,10 +117,10 @@ avglat_groq=sum(models_latency[model_groq])/len(models_latency[model_groq])
 avglat_ollama=sum(models_latency[model_ollama])/len(models_latency[model_ollama])
 avg_latency_with_models={ avglat_groq:model_groq,avglat_ollama:model_ollama} 
 print(f"The Model with Better speed is: {avg_latency_with_models[min(avglat_groq,avglat_ollama)]}")
-with open("models_comaparison.json","w") as file:
-   json.dump(results,file,indent=4)
-if(EXPORT_CSV):
- write_cross_platform_csv(task_stats)
+# Save results to JSON for later analysis
+with open("RESULTS/models_comaparison.json","w") as file:
+  json.dump(results,file,indent=4)
+write_cross_platform_csv(task_stats)
 
    
 

@@ -1,0 +1,170 @@
+[
+    {
+        "Category": "factual",
+        "Prompt": "Who is Raj Shamani? Give 5 bullet points",
+        "Model A": "llama-3.1-8b-instant",
+        "Model B": "gemma3:4b",
+        "Better Accuracy": [
+            "B",
+            [
+                "B",
+                "B",
+                "B"
+            ]
+        ]
+    },
+    {
+        "Category": "factual",
+        "Prompt": "Who is Raj Shamani? Give 5 bullet points",
+        "Model A": "llama-3.1-8b-instant",
+        "Model B": "gemma3:4b",
+        "Better Accuracy": [
+            "B",
+            [
+                "B",
+                "B",
+                "B"
+            ]
+        ]
+    },
+    {
+        "Category": "factual",
+        "Prompt": "Who is Raj Shamani? Give 5 bullet points",
+        "Model A": "llama-3.1-8b-instant",
+        "Model B": "gemma3:4b",
+        "Better Accuracy": [
+            "B",
+            [
+                "B",
+                "B",
+                "A"
+            ]
+        ]
+    },
+    {
+        "Category": "coding",
+        "Prompt": "Write Python code for bubble sort",
+        "Model A": "llama-3.1-8b-instant",
+        "Model B": "gemma3:4b",
+        "Better Accuracy": [
+            "A",
+            [
+                "A",
+                "A",
+                "B"
+            ]
+        ]
+    },
+    {
+        "Category": "coding",
+        "Prompt": "Write Python code for bubble sort",
+        "Model A": "llama-3.1-8b-instant",
+        "Model B": "gemma3:4b",
+        "Better Accuracy": [
+            "B",
+            [
+                "A",
+                "B",
+                "B"
+            ]
+        ]
+    },
+    {
+        "Category": "coding",
+        "Prompt": "Write Python code for bubble sort",
+        "Model A": "llama-3.1-8b-instant",
+        "Model B": "gemma3:4b",
+        "Better Accuracy": [
+            "B",
+            [
+                "A",
+                "B",
+                "B"
+            ]
+        ]
+    },
+    {
+        "Category": "math",
+        "Prompt": "Give formulas of Indefinite Integration",
+        "Model A": "llama-3.1-8b-instant",
+        "Model B": "gemma3:4b",
+        "Better Accuracy": [
+            "B",
+            [
+                "B",
+                "B",
+                "B"
+            ]
+        ]
+    },
+    {
+        "Category": "math",
+        "Prompt": "Give formulas of Indefinite Integration",
+        "Model A": "llama-3.1-8b-instant",
+        "Model B": "gemma3:4b",
+        "Better Accuracy": [
+            "B",
+            [
+                "B",
+                "B",
+                "B"
+            ]
+        ]
+    },
+    {
+        "Category": "math",
+        "Prompt": "Give formulas of Indefinite Integration",
+        "Model A": "llama-3.1-8b-instant",
+        "Model B": "gemma3:4b",
+        "Better Accuracy": [
+            "B",
+            [
+                "A",
+                "B",
+                "B"
+            ]
+        ]
+    },
+    {
+        "Category": "Critical Thinking",
+        "Prompt": "You are a Environment lover. in today's world,pollution level is very high which is very harmful for us. what actions we have to take to decrease pollution level,to save the life of people ",
+        "Model A": "llama-3.1-8b-instant",
+        "Model B": "gemma3:4b",
+        "Better Accuracy": [
+            "B",
+            [
+                "B",
+                "B",
+                "B"
+            ]
+        ]
+    },
+    {
+        "Category": "Critical Thinking",
+        "Prompt": "You are a Environment lover. in today's world,pollution level is very high which is very harmful for us. what actions we have to take to decrease pollution level,to save the life of people ",
+        "Model A": "llama-3.1-8b-instant",
+        "Model B": "gemma3:4b",
+        "Better Accuracy": [
+            "B",
+            [
+                "B",
+                "B",
+                "A"
+            ]
+        ]
+    },
+    {
+        "Category": "Critical Thinking",
+        "Prompt": "You are a Environment lover. in today's world,pollution level is very high which is very harmful for us. what actions we have to take to decrease pollution level,to save the life of people ",
+        "Model A": "llama-3.1-8b-instant",
+        "Model B": "gemma3:4b",
+        "Better Accuracy": [
+            "B",
+            [
+                "B",
+                "B",
+                "B"
+            ]
+        ]
+    }
+]

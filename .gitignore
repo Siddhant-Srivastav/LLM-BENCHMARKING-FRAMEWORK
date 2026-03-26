@@ -1,4 +1,6 @@
 .env
 __pycache__/
 *.csv
-*.json
+RESULTS/*.json
+RESULTS/*.png
+
