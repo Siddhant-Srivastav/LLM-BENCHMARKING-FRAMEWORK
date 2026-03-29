@@ -114,6 +114,7 @@ for model_a,model_b in combinations(MODELS,2):
        except Exception as e:
         print("Error in judge evaluation")
 # Save results to JSON for later analysis
+os.makedirs("RESULTS",exist_ok=True)
 with open("RESULTS/main_results.json","w") as file:
    json.dump(results,file,indent=2) 
 print("Qualitative Evaluation Summary:")
