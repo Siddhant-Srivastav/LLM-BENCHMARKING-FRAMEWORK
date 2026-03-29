@@ -1,2 +1,0 @@
-tegory":Category,
-            "Prompt":prompt,
