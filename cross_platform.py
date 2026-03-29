@@ -116,8 +116,8 @@ avg_latency_with_models={ avglat_groq:model_groq,avglat_ollama:model_ollama}
 print(f"The Model with Better speed is: {avg_latency_with_models[min(avglat_groq,avglat_ollama)]}")
 with open("models_comaparison.json","w") as file:
    json.dump(results,file,indent=4)
-if(EXPORT_CSV):
  write_cross_platform_csv(task_stats)
+
 
    
 
