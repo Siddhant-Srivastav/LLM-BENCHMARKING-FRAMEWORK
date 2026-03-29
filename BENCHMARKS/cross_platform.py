@@ -118,6 +118,7 @@ avglat_ollama=sum(models_latency[model_ollama])/len(models_latency[model_ollama]
 avg_latency_with_models={ avglat_groq:model_groq,avglat_ollama:model_ollama} 
 print(f"The Model with Better speed is: {avg_latency_with_models[min(avglat_groq,avglat_ollama)]}")
 # Save results to JSON for later analysis
+os.makedirs("RESULTS",exist_ok=True)
 with open("RESULTS/models_comaparison.json","w") as file:
   json.dump(results,file,indent=4)
 write_cross_platform_csv(task_stats)
