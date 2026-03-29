@@ -5,7 +5,6 @@ from groq.types.chat.chat_completion import ChatCompletion
 import ollama
 from dotenv import load_dotenv
 import os
-EXPORT_CSV=False
 RUN_PER_PROMPTS=3
 model_groq="llama-3.1-8b-instant"
 model_ollama="gemma3:4b"
