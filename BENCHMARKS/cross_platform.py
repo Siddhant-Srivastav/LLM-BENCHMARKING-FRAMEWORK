@@ -5,13 +5,9 @@ from groq.types.chat.chat_completion import ChatCompletion
 import ollama
 from dotenv import load_dotenv
 import os
-<<<<<<< HEAD:BENCHMARKS/cross_platform.py
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from config import RUN_PER_PROMPTS
-=======
-RUN_PER_PROMPTS=3
->>>>>>> 3c2d940310b90a21928c1078592e3a07046ff1fe:cross_platform.py
 model_groq="llama-3.1-8b-instant"
 model_ollama="gemma3:4b"
 models_score={model_groq:0,model_ollama:0}
@@ -121,17 +117,10 @@ avglat_groq=sum(models_latency[model_groq])/len(models_latency[model_groq])
 avglat_ollama=sum(models_latency[model_ollama])/len(models_latency[model_ollama])
 avg_latency_with_models={ avglat_groq:model_groq,avglat_ollama:model_ollama} 
 print(f"The Model with Better speed is: {avg_latency_with_models[min(avglat_groq,avglat_ollama)]}")
-<<<<<<< HEAD:BENCHMARKS/cross_platform.py
 # Save results to JSON for later analysis
 with open("RESULTS/models_comaparison.json","w") as file:
   json.dump(results,file,indent=4)
 write_cross_platform_csv(task_stats)
-=======
-with open("models_comaparison.json","w") as file:
-   json.dump(results,file,indent=4)
-write_cross_platform_csv(task_stats)
-
->>>>>>> 3c2d940310b90a21928c1078592e3a07046ff1fe:cross_platform.py
 
    
 
