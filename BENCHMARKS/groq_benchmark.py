@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from itertools import combinations
 import json
 import os
+import matplotlib 
 import matplotlib.pyplot as p
 import sys 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -124,14 +125,15 @@ for model,score in sorted(score_counts.items(),key=lambda x:x[1],reverse=True):
 
 models=list(score_counts.keys())
 scores=list(score_counts.values())
-p.figure(figsize=(0.5))
+p.figure(figsize=(5,4))
 p.bar(models,scores)
 p.xlabel("Models")
 p.ylabel("Score")
 p.title("LLM Benchmark: Qualitative Evaluation")
-p.xsticks(rotation=20)
-p.grid(axis="y",linestyle="--",alppha=0.8)
-p.tightlayout()
+p.xticks(rotation=20)
+p.grid(axis="y",linestyle="--",alpha=0.8)
+p.tight_layout()
 p.savefig("RESULTS/model_scores.png",dpi=300)
-p.show()
 write_groq_csv(task_stats)
+p.show()
+print("Hello World")
